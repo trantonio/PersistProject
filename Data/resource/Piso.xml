@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Piso>
+    <Habitacion id="Ant">
+      <Persona>
+        <nombre>Antonio</nombre>
+        <apellidos>Aguirre Gonzalez</apellidos>
+      </Persona>
+      
+    </Habitacion>
+    <Habitacion id = "Ait">
+      <Persona>
+        <nombre>Aitor</nombre>
+        <apellidos>Rodriguez Quer</apellidos>
+      </Persona>  
+    </Habitacion>
+    <Habitacion id = "Lyy">
+        <Persona>
+            <nombre>Laia</nombre>
+            <apellidos>Fontanals</apellidos>
+        </Persona>
+        <Persona>
+            <nombre>Yeray</nombre>
+            <apellidos>Perez</apellidos>
+        </Persona>
+    </Habitacion>
+</Piso>

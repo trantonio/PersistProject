@@ -1,0 +1,9 @@
+{
+  "title":"Selecciona un numero para escoger una opción : ",
+  "main":"1. Crear Liga \n2. Ver Resultados\n3. Introducir resultados\n4. Cambiar Idioma\n5. Resetear liga",
+  "team":"Equipo ",
+  "referee":"Nombre del arbitro: ",
+  "Data":"Fecha del evento (YYMMDD): "
+
+
+}
