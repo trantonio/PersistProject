@@ -8,6 +8,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+  Clase para utilizar json
+ */
 public class JSONhlp implements Constantes{
 
     public static JSONObject jsonObject;
