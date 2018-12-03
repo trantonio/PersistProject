@@ -13,8 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
-    Connection con = null;
-    Statement st = null;
+    private static Connection con = null;
+    private static Statement st = null;
 
 
     JavaPostgreSQLBasic(){
@@ -27,22 +27,29 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
         }
     }
 
-    public void ConnectToPostgresDataBase() throws SQLException {
+    public static String ConnectToPostgresDataBase() throws SQLException {
         con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
-        System.out.println(JSONhlp.jsonObject.get("ConectExit"));
+        return ""+JSONhlp.jsonObject.get("ConnectExit");
     }
-    public void CreateDataBase(String name) throws SQLException{
+    public static boolean CheckDB(String namedb) throws SQLException {
+        st = con.createStatement();
+        //Probar esta sentencia real
+        st.execute("SELECT datname FROM pg_database");
+        return false;
+    }
+    public static String CreateDataBase(String name) throws SQLException{
         st = con.createStatement();
         st.executeUpdate(Createdb+name);
-        System.out.println(JSONhlp.jsonObject.get("CreateDatabase"));
         CloseAll();
+        return ""+JSONhlp.jsonObject.get("CreateDatabase");
     }
-    public void DropDataBase(String name) throws SQLException{
+    public static String DropDataBase(String name) throws SQLException{
         st = con.createStatement();
         st.executeUpdate(Dropdb+name);
+        return ""+JSONhlp.jsonObject.get("DropDB");
 
     }
-    public void CloseAll() throws SQLException{
+    public static void CloseAll() throws SQLException{
         st.close();
         con.close();
     }

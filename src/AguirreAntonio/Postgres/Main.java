@@ -10,11 +10,13 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException {
-        JavaPostgreSQLBasic j= new JavaPostgreSQLBasic();
-            j.ConnectToPostgresDataBase();
-            j.CreateDataBase("java");
+        new JavaPostgreSQLBasic();
 
-            j.CloseAll();
+        System.out.println(JavaPostgreSQLBasic.ConnectToPostgresDataBase());
+        JavaPostgreSQLBasic.CheckDB("java");
+//        System.out.println(JavaPostgreSQLBasic.CreateDataBase("java"));
+//        System.out.println(JavaPostgreSQLBasic.DropDataBase("java"));
 
+        JavaPostgreSQLBasic.CloseAll();
     }
 }

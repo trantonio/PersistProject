@@ -1,5 +1,6 @@
 {
-  "ConectExit": "Conexion realizada con exito!",
-  "CreateDatabase":"Base de datos creada correctamente"
+  "ConnectExit": "Conexion realizada con exito!",
+  "CreateDatabase":"Base de datos creada correctamente",
+  "DropDB":"Base de datos borrada correctamente"
 
 }
