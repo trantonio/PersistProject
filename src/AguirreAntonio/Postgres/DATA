@@ -23,3 +23,23 @@ Variable flexible seria poniendo por ejemplo indice ++ para añadir una especie 
 
 Se tiene que cerrar cuando se cierra el programa
 
+JPA - Java Persistant API
+
+EXAMEN
+crear base de datos tablas querys....
+meter cosas de una base de datos a otra... NETbeans
+Estrategias de depuracion
+
+Crear base de datos con Derby
+
+Hibernate REPASARLOOO . Hay 2 maneras de configurar hibernate. Necesitamos .jar
+Moodle tenemos masterdetail
+Inconveniente XML --  No hay refactor,
+Anotaciones tiene preferencias sobre xml
+/// Google    jboss hibernate one to many
+En el examen entra one to many
+
+Descargar proyecto hibernate
+
+Constructor vacio
+El pais tiene estructura de datos que es un set.

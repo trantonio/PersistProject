@@ -7,10 +7,7 @@ import AguirreAntonio.ahelp.PostgresBasics;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
     private static Connection con = null;
@@ -19,7 +16,7 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
 
     JavaPostgreSQLBasic(){
         try {
-            JSONhlp.configParser("postgres","conexion.json");
+            JSONhlp.configParser("postgres","conexion");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
@@ -27,26 +24,38 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
         }
     }
 
-    public static String ConnectToPostgresDataBase() throws SQLException {
+    public static String connectToPostgresDataBase() throws SQLException {
         con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
         return ""+JSONhlp.jsonObject.get("ConnectExit");
     }
-    public static boolean CheckDB(String namedb) throws SQLException {
+    public static boolean checkDB(String namedb) throws SQLException {
         st = con.createStatement();
         //Probar esta sentencia real
-        st.execute("SELECT datname FROM pg_database");
+
+        ResultSet rs =st.executeQuery("SELECT datname FROM pg_database");
+        while(rs.next()) {
+            //Devuelve el parametro de la primera columna en texto
+            rs.getString(1);
+            if(rs.getString(1).equals(namedb)) {
+                return true;
+            }
+        }
         return false;
     }
-    public static String CreateDataBase(String name) throws SQLException{
+    public static String returnDataBases(){
+
+        return "";
+    }
+    public static String createDataBase(String name) throws SQLException{
         st = con.createStatement();
         st.executeUpdate(Createdb+name);
         CloseAll();
-        return ""+JSONhlp.jsonObject.get("CreateDatabase");
+        return "-->"+JSONhlp.jsonObject.get("CreateDatabase");
     }
-    public static String DropDataBase(String name) throws SQLException{
+    public static String dropDataBase(String name) throws SQLException{
         st = con.createStatement();
         st.executeUpdate(Dropdb+name);
-        return ""+JSONhlp.jsonObject.get("DropDB");
+        return "--> "+JSONhlp.jsonObject.get("DropDB");
 
     }
     public static void CloseAll() throws SQLException{
