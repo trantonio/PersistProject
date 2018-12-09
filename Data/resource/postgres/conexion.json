@@ -1,6 +1,8 @@
 {
   "ConnectExit": "Conexion realizada con exito!",
   "CreateDatabase":"Base de datos creada correctamente",
+  "DataBaseExists":"La base de datos ya existe",
+  "DataBaseNoExists":"La base de datos no existe",
   "DropDB":"Base de datos borrada correctamente",
   "NoOption":"Escoge una opcion válida!",
   "TitleMenu":"Escoge una opcion a realizar : ",
@@ -9,6 +11,8 @@
   "Option2":"Eliminar base de datos",
   "O2name":"Indica el nombre de la base de datos que vas a eliminar --> ",
   "Option3":"Comprobar si base de datos existe",
-  "O3name":"Indica el nombre de la base de datos que quieres comprobar si existe --> "
+  "O3name":"Indica el nombre de la base de datos que quieres comprobar si existe --> ",
+  "Option4":"Mostrar todas las bases de datos disponibles",
+  "Option5":"Crea una tabla para la base de datos"
 
 }

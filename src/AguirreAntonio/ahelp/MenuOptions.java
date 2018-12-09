@@ -42,6 +42,10 @@ public class MenuOptions {
                 name = sc.nextLine();
                 System.out.println(JavaPostgreSQLBasic.checkDB(name));
                 break;
+            case 4:
+                System.out.println(JavaPostgreSQLBasic.returnDataBases());
+
+                break;
             case 50:
 
                 System.out.println("Salimos!");

@@ -8,6 +8,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.Scanner;
 
 public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
     private static Connection con = null;
@@ -42,21 +43,50 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
         }
         return false;
     }
-    public static String returnDataBases(){
-
-        return "";
+    public static String returnDataBases() throws SQLException {
+        st = con.createStatement();
+        ResultSet rs =st.executeQuery("SELECT datname FROM pg_database");
+        while(rs.next()){
+            System.out.println(rs.getString(1));
+        }
+        return "\n--------------------";
     }
     public static String createDataBase(String name) throws SQLException{
-        st = con.createStatement();
-        st.executeUpdate(Createdb+name);
-        CloseAll();
-        return "-->"+JSONhlp.jsonObject.get("CreateDatabase");
+        if(!checkDB(name)) {
+            st = con.createStatement();
+            st.executeUpdate(Createdb + name);
+            return "-->" + JSONhlp.jsonObject.get("CreateDatabase");
+        }else{
+            return "-->"+ JSONhlp.jsonObject.get("DataBaseExists");
+        }
     }
     public static String dropDataBase(String name) throws SQLException{
-        st = con.createStatement();
-        st.executeUpdate(Dropdb+name);
-        return "--> "+JSONhlp.jsonObject.get("DropDB");
+        if(checkDB(name)) {
+            st = con.createStatement();
+            st.executeUpdate(Dropdb + name);
+            return "--> " + JSONhlp.jsonObject.get("DropDB");
+        }else{
+            return "-->" + JSONhlp.jsonObject.get("DataBaseNoExists");
+        }
+    }
 
+    /*
+    CREATE TABLE SOCI
+       (CODSOCI smallint CONSTRAINT SOCI_CODSOCI_PK PRIMARY KEY ,
+        DNI varchar(9) ,
+        NOM   varchar(15) CONSTRAINT SOCI_NOMSOCI_NN NOT NULL,
+        COGNOMS varchar(20) CONSTRAINT SOCI_COGNOMS_NN NOT NULL,
+    	DATA_NAIXEMENT DATE,
+        ADRECA varchar(50) CONSTRAINT SOCI_DIRSOCI_NN NOT NULL,
+        TELEFON varchar(9) CONSTRAINT SOCI_TELFSOCI_NN NOT NULL,
+		SEXE varchar(1)
+);
+     */
+    public static String createTable(){
+        Scanner nameTable = new Scanner(System.in);
+        nameTable.nextLine();
+        System.out.println(nameTable);
+        return "";
     }
     public static void CloseAll() throws SQLException{
         st.close();

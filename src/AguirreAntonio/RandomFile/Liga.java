@@ -11,7 +11,7 @@ import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Liga {
+public class  Liga {
     //Clases para utilizar json
     JSONObject jsonObject;
     public JSONParser jsonParser = new JSONParser();

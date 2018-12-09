@@ -75,7 +75,7 @@ public class PostgresManager {
 //        private void createTables() throws SQLException {
 //            statement = con.createStatement();
 //
-//            query = "CREATE TABLE IF NOT EXISTS country (" +
+//            query = "  " +
 //                    "country_id SERIAL PRIMARY KEY, \n" +
 //                    "carCode VARCHAR(5) NOT NULL UNIQUE, \n" +
 //                    "countryName VARCHAR(35) NOT NULL)";
