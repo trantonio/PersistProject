@@ -1,8 +1,11 @@
 package AguirreAntonio.ahelp;
 
 import AguirreAntonio.Postgres.JavaPostgreSQLBasic;
+import AguirreAntonio.Postgres.ReadDB;
 import org.json.simple.parser.ParseException;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -20,7 +23,7 @@ public class MenuOptions {
         return sc.nextInt();
     }
 
-    public static void Menu(int option) throws IOException, SQLException {
+    public static void Menu(int option) throws IOException, SQLException, ParserConfigurationException, SAXException {
         String name;
         switch (option){
             case 0:
@@ -45,6 +48,11 @@ public class MenuOptions {
             case 4:
                 System.out.println(JavaPostgreSQLBasic.returnDataBases());
 
+                break;
+            case 6:
+                ReadDB mr = new ReadDB("Data/resource/world.xml");
+
+                System.out.println("Antonio Aguirre\n"+mr.cityWithSea("Spain"));
                 break;
             case 50:
 

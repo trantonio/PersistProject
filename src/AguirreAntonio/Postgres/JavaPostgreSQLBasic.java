@@ -89,7 +89,7 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
         return "";
     }
     public static void CloseAll() throws SQLException{
-        st.close();
+         st.close();
         con.close();
     }
 
