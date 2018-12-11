@@ -20,7 +20,7 @@ public class Main {
         new JavaPostgreSQLBasic();
         System.out.println(JavaPostgreSQLBasic.connectToPostgresDataBase());
 
-        int numberOptions = 5;
+        int numberOptions = 6;
         int numOptions = 0;
         do {
             numOptions = MenuOptions.Menup(numberOptions);

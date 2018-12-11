@@ -8,6 +8,7 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class MenuOptions {
@@ -27,7 +28,9 @@ public class MenuOptions {
         String name;
         switch (option){
             case 0:
+                ReadDB mr = new ReadDB("Data/resource/world.xml");
 
+                System.out.println("Antonio Aguirre\n"+mr.cityWithSea("Spain"));
                 break;
             case 1:
                 System.out.println(JSONhlp.jsonObject.get("O1name"));
@@ -49,10 +52,12 @@ public class MenuOptions {
                 System.out.println(JavaPostgreSQLBasic.returnDataBases());
 
                 break;
+            case 5:
+                String[] argsTable = {"",""};
+                System.out.println(JavaPostgreSQLBasic.createTable("Prueba",argsTable));
+                break;
             case 6:
-                ReadDB mr = new ReadDB("Data/resource/world.xml");
-
-                System.out.println("Antonio Aguirre\n"+mr.cityWithSea("Spain"));
+                System.out.println(JavaPostgreSQLBasic.SeeTable("prueba"));
                 break;
             case 50:
 

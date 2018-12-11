@@ -13,6 +13,7 @@
   "Option3":"Comprobar si base de datos existe",
   "O3name":"Indica el nombre de la base de datos que quieres comprobar si existe --> ",
   "Option4":"Mostrar todas las bases de datos disponibles",
-  "Option5":"Crea una tabla para la base de datos"
+  "Option5":"Crea una tabla para la base de datos",
+  "Option6":"Ver la base de datos creadas"
 
 }

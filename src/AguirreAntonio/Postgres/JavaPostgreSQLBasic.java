@@ -14,6 +14,8 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
     private static Connection con = null;
     private static Statement st = null;
 
+    private String query;
+
 
     JavaPostgreSQLBasic(){
         try {
@@ -42,6 +44,13 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
             }
         }
         return false;
+    }
+    public void testPostgres(String select) throws SQLException {
+        st = con.createStatement();
+        ResultSet rs =st.executeQuery(select);
+        while(rs.next()){
+            System.out.println(rs.getString(1));
+        }
     }
     public static String returnDataBases() throws SQLException {
         st = con.createStatement();
@@ -82,11 +91,23 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
 		SEXE varchar(1)
 );
      */
-    public static String createTable(){
-        Scanner nameTable = new Scanner(System.in);
-        nameTable.nextLine();
-        System.out.println(nameTable);
-        return "";
+    public String createTable(String nameTable, String[] args) throws SQLException {
+        st = con.createStatement();
+        query = "CREATE TABLE IF NOT EXISTS city (" +
+                    "city_id SERIAL PRIMARY KEY, \n" +
+                    "country_id integer, \n" +
+                    "cityName VARCHAR(70) NOT NULL, \n" +
+                    "CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES country (country_id))";
+            st.addBatch(query);
+            st.executeBatch();
+        return "Create Table Exit";
+    }
+    public static String SeeTable(String nameTable) throws SQLException {
+
+        PreparedStatement stmt=con.prepareStatement("SELECT * FROM pg_catalog.pg_tables;");
+        System.out.println(stmt.toString() + "" + stmt.getParameterMetaData());
+        stmt.execute();
+        return "Exito de "+ nameTable;
     }
     public static void CloseAll() throws SQLException{
          st.close();
