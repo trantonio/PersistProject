@@ -6,6 +6,7 @@
   "DropDB":"Base de datos borrada correctamente",
   "NoOption":"Escoge una opcion válida!",
   "TitleMenu":"Escoge una opcion a realizar : ",
+  "Option0":"Ejecución simple de postgres",
   "Option1":"Crear base de datos",
   "O1name":"Indica el nombre de la base de datos que quieres crear --> ",
   "Option2":"Eliminar base de datos",

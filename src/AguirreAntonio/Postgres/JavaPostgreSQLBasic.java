@@ -96,17 +96,24 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
         query = "CREATE TABLE IF NOT EXISTS city (" +
                     "city_id SERIAL PRIMARY KEY, \n" +
                     "country_id integer, \n" +
-                    "cityName VARCHAR(70) NOT NULL, \n" +
-                    "CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES country (country_id))";
+                    "cityName VARCHAR(70) NOT NULL)";
             st.addBatch(query);
             st.executeBatch();
         return "Create Table Exit";
     }
-    public static String SeeTable(String nameTable) throws SQLException {
-
-        PreparedStatement stmt=con.prepareStatement("SELECT * FROM pg_catalog.pg_tables;");
-        System.out.println(stmt.toString() + "" + stmt.getParameterMetaData());
-        stmt.execute();
+    public String statment(String statement) throws SQLException {
+        st = con.createStatement();
+        query = statement;
+        st.addBatch(query);
+        st.executeBatch();
+        return "Statement exit!";
+    }
+    public String SeeTable(String nameTable) throws SQLException {
+        st = con.createStatement();
+        ResultSet rs =st.executeQuery("SELECT * FROM "+nameTable);
+        while(rs.next()){
+            System.out.println(rs.getString(1));
+        }
         return "Exito de "+ nameTable;
     }
     public static void CloseAll() throws SQLException{

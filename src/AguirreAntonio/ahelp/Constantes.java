@@ -6,7 +6,7 @@ public interface Constantes {
 
 
     //Postgres
-    String DB_URL = "jdbc:postgresql://localhost/postgres";
+    String DB_URL = "jdbc:postgresql://localhost/word";
     String DB_USER = "postgres";
     String DB_PASSWD = "jupiter";
 

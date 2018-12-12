@@ -1,19 +1,17 @@
 package AguirreAntonio.ahelp;
 
 import AguirreAntonio.Postgres.JavaPostgreSQLBasic;
-import AguirreAntonio.Postgres.ReadDB;
 import org.json.simple.parser.ParseException;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class MenuOptions {
 
-    static JavaPostgreSQLBasic bsc = new JavaPostgreSQLBasic();
+    static JavaPostgreSQLBasic basicsql = new JavaPostgreSQLBasic();
     static Scanner sc = new Scanner(System.in);
     public static int Menup(int numOptions) throws IOException, ParseException {
         //Creamos la configuracion para json
@@ -29,9 +27,9 @@ public class MenuOptions {
         String name;
         switch (option){
             case 0:
-                ReadDB mr = new ReadDB("Data/resource/world.xml");
-
-                System.out.println("Antonio Aguirre\n"+mr.cityWithSea("Spain"));
+                System.out.println(basicsql.statment("SELECT * FROM city"));
+//                ReadDB mr = new ReadDB("Data/resource/world.xml");
+//                System.out.println("Antonio Aguirre\n"+mr.cityWithSea("Spain"));
                 break;
             case 1:
                 System.out.println(JSONhlp.jsonObject.get("O1name"));
@@ -56,10 +54,11 @@ public class MenuOptions {
             case 5:
                 String[] argsTable = {"",""};
 
-                System.out.println(bsc.createTable("Prueba",argsTable));
+                System.out.println(basicsql.createTable("Prueba",argsTable));
                 break;
             case 6:
-                System.out.println(bsc.SeeTable("prueba"));
+                Scanner sc = new Scanner(System.in);
+                System.out.println(basicsql.SeeTable(sc.nextLine()));
                 break;
             case 50:
 
