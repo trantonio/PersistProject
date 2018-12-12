@@ -17,7 +17,7 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
     private String query;
 
 
-    JavaPostgreSQLBasic(){
+    public JavaPostgreSQLBasic(){
         try {
             JSONhlp.configParser("postgres","conexion");
         } catch (IOException e) {

@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class MenuOptions {
 
+    static JavaPostgreSQLBasic bsc = new JavaPostgreSQLBasic();
     static Scanner sc = new Scanner(System.in);
     public static int Menup(int numOptions) throws IOException, ParseException {
         //Creamos la configuracion para json
@@ -54,10 +55,11 @@ public class MenuOptions {
                 break;
             case 5:
                 String[] argsTable = {"",""};
-                System.out.println(JavaPostgreSQLBasic.createTable("Prueba",argsTable));
+
+                System.out.println(bsc.createTable("Prueba",argsTable));
                 break;
             case 6:
-                System.out.println(JavaPostgreSQLBasic.SeeTable("prueba"));
+                System.out.println(bsc.SeeTable("prueba"));
                 break;
             case 50:
 
