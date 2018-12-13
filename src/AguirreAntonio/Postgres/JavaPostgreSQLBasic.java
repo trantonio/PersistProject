@@ -6,8 +6,9 @@ import AguirreAntonio.ahelp.JSONhlp;
 import AguirreAntonio.ahelp.PostgresBasics;
 import org.json.simple.parser.ParseException;
 
-import java.io.IOException;
+import java.io.*;
 import java.sql.*;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
@@ -15,8 +16,8 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
     private static Statement st = null;
 
     private String query;
-
-
+    static String dbName;
+    static Properties properties = new Properties();
     public JavaPostgreSQLBasic(){
         try {
             JSONhlp.configParser("postgres","conexion");
@@ -27,9 +28,24 @@ public class JavaPostgreSQLBasic implements Constantes, PostgresBasics {
         }
     }
 
-    public static String connectToPostgresDataBase() throws SQLException {
-        con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWD);
+    public static String connectToPostgresDataBase() throws SQLException, IOException {
+        File propertiesFile = new File("postgres.properties");
+        if (!propertiesFile.exists()) {
+            setupDB();
+        } else {
+            InputStream input = new FileInputStream("postgres.properties");
+            properties.load(input);
+            dbName = properties.getProperty("dataBaseName");
+        }
+        con = DriverManager.getConnection(DB_URL+dbName, DB_USER, DB_PASSWD);
         return ""+JSONhlp.jsonObject.get("ConnectExit");
+    }
+    public static void setupDB() throws IOException {
+        Scanner scDB = new Scanner(System.in);
+        System.out.println("Indica la base de datos para iniciar sesion --->");
+        dbName = scDB.nextLine();
+        properties.setProperty("dataBaseName", dbName);
+        properties.store(new FileOutputStream("postgres.properties"), null);
     }
     public static boolean checkDB(String namedb) throws SQLException {
         st = con.createStatement();

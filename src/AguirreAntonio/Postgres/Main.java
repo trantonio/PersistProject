@@ -3,8 +3,12 @@ package AguirreAntonio.Postgres;
 import AguirreAntonio.ahelp.JSONhlp;
 import AguirreAntonio.ahelp.MenuOptions;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class Main {
@@ -16,6 +20,7 @@ public class Main {
      */
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
+
 
         new JavaPostgreSQLBasic();
         System.out.println(JavaPostgreSQLBasic.connectToPostgresDataBase());
