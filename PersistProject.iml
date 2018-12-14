@@ -10,5 +10,7 @@
     <orderEntry type="library" name="json-simple-1.1" level="project" />
     <orderEntry type="library" name="postgresql-42.2.5" level="project" />
     <orderEntry type="library" name="hibernate-core-4.2.4.final" level="project" />
+    <orderEntry type="library" name="hibernate-core-4.3.0.beta1" level="project" />
+    <orderEntry type="library" name="javax.persistence" level="project" />
   </component>
 </module>
