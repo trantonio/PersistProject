@@ -1,6 +1,7 @@
 package AguirreAntonio.ahelp;
 
 import AguirreAntonio.Postgres.JavaPostgreSQLBasic;
+import AguirreAntonio.Postgres.ReadDB;
 import org.json.simple.parser.ParseException;
 import org.xml.sax.SAXException;
 
@@ -23,7 +24,7 @@ public class MenuOptions {
         return sc.nextInt();
     }
 
-    public static void Menu(int option) throws IOException, SQLException, ParserConfigurationException, SAXException {
+    public static void Menu(int option) throws Exception {
         String name;
         switch (option){
             case 0:
@@ -54,15 +55,22 @@ public class MenuOptions {
             case 5:
                 String[] argsTable = {"",""};
 
-                System.out.println(basicsql.createTable("Prueba",argsTable));
+                System.out.println(basicsql.createTableCountry());
                 break;
             case 6:
                 Scanner sc = new Scanner(System.in);
-                System.out.println(basicsql.SeeTable(sc.nextLine()));
+                System.out.println(basicsql.seeTable(sc.nextLine()));
+                break;
+            case 7:
+                JavaPostgreSQLBasic.changeDB();
+                break;
+            case 8:
+                basicsql.countryOnPostgres();
                 break;
             case 50:
 
                 System.out.println("Salimos!");
+                JavaPostgreSQLBasic.closeAll();
                 System.exit(1);
                 break;
             default:

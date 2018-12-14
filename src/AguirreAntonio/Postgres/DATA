@@ -1,36 +1,33 @@
 
 
-Se puede hacer sin provincias la primera version
+//Se puede hacer sin provincias la primera version
 
-en sax lo lee TOT seguido Recomendado: DOM
+//en sax lo lee TOT seguido Recomendado: DOM
 
-Da igual cuanto tarde la carga de datos
+//Da igual cuanto tarde la carga de datos
 
-Pais provincia
+//Pais provincia
 
-Hacer 2 niveles Country, City
+//Hacer 2 niveles Country, City
 
 
-Autoincrement
+//Autoincrement--
 
 getGeneratedKeys() y te da la conexion
 
-COsas que hacer
+Cosas que hacer
 Si busco ona me encuentre barcelona en varios sitios
 
 
-Variable flexible seria poniendo por ejemplo indice ++ para añadir una especie de indice
-
-Se tiene que cerrar cuando se cierra el programa
 
 JPA - Java Persistant API
 
 EXAMEN
 crear base de datos tablas querys....
-meter cosas de una base de datos a otra... NETbeans
+meter cosas de una base de datos a otra... NETbeans Java beans and POJO (Plain old java object)
 Estrategias de depuracion
 
-Crear base de datos con Derby
+Crear base de datos con -Derby-
 
 Hibernate REPASARLOOO . Hay 2 maneras de configurar hibernate. Necesitamos .jar
 Moodle tenemos masterdetail

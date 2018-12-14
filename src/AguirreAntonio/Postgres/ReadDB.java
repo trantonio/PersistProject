@@ -16,4 +16,8 @@ public class ReadDB extends DomReader{
     public List<String> cityWithSea(String countryName){
         return super.extractList("//country[name='"+countryName+"']//city/located_at[@watertype='sea']/../name/text()");
     }
+    public List<String> Country(){
+
+        return super.extractList("//country/name/text()");
+    }
 }

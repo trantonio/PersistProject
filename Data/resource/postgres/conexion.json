@@ -1,10 +1,13 @@
 {
-  "ConnectExit": "Conexion realizada con exito!",
+  "ConnectExit": "Conexion realizada con exito",
   "CreateDatabase":"Base de datos creada correctamente",
   "DataBaseExists":"La base de datos ya existe",
   "DataBaseNoExists":"La base de datos no existe",
+  "CreateTableOK":"Base de datos creada correctamente",
   "DropDB":"Base de datos borrada correctamente",
   "NoOption":"Escoge una opcion válida!",
+  "Disconect":"Base de datos cerrada correctamente",
+
   "TitleMenu":"Escoge una opcion a realizar : ",
   "Option0":"Ejecución simple de postgres",
   "Option1":"Crear base de datos",
@@ -14,7 +17,9 @@
   "Option3":"Comprobar si base de datos existe",
   "O3name":"Indica el nombre de la base de datos que quieres comprobar si existe --> ",
   "Option4":"Mostrar todas las bases de datos disponibles",
-  "Option5":"Crea una tabla para la base de datos",
-  "Option6":"Ver la base de datos creadas"
+  "Option5":"Crea una tabla para la Country",
+  "Option6":"Ver la base de datos creadas",
+  "Option7":"Cambiar la base de datos",
+  "Option8":"Add Countries"
 
 }

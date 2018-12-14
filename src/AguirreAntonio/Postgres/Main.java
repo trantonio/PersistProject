@@ -1,14 +1,7 @@
 package AguirreAntonio.Postgres;
 
-import AguirreAntonio.ahelp.JSONhlp;
 import AguirreAntonio.ahelp.MenuOptions;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.SQLException;
-import java.util.Properties;
 import java.util.Scanner;
 
 public class Main {
@@ -25,7 +18,7 @@ public class Main {
         new JavaPostgreSQLBasic();
         System.out.println(JavaPostgreSQLBasic.connectToPostgresDataBase());
 
-        int numberOptions = 6;
+        int numberOptions = 10;
         int numOptions = 0;
         do {
             numOptions = MenuOptions.Menup(numberOptions);
@@ -33,7 +26,7 @@ public class Main {
         }while (numOptions!=50);
 
 
-        JavaPostgreSQLBasic.CloseAll();
+        JavaPostgreSQLBasic.closeAll();
     }
 
 

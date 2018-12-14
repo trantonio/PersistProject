@@ -8,6 +8,7 @@ public class Main implements Constantes {
 
         cm.connect(DB_URL,DB_USER,DB_PASSWD);
         cm.createTables();
+        cm.insertCountry("Spain");
         cm.insertCity("Barcelona","Bcn");
         System.out.println(cm.listCountryCities("Barcelona"));
 

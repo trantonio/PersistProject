@@ -1,43 +1,45 @@
 package AguirreAntonio.Postgres;
 
-import java.util.Objects;
+import java.io.Serializable;
 
-public class Country {
+public class Country implements Serializable {
 
-    int countryId;
-    String countryName;
+    private static final long serialVersionUID = 93L;
 
-    public Country(int countryId, String countryName) {
-        this.countryId = countryId;
-        this.countryName = countryName;
+    private Integer countryId;
+    private String country;
+
+    public Country() {
     }
 
-    public int getCountryId() {
+    public Integer getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(int countryId) {
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountryId(Integer countryId) {
         this.countryId = countryId;
     }
 
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Country country = (Country) o;
-        return countryId == country.countryId;
+
+        return countryId != null ? countryId.equals(country.countryId) : country.countryId == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(countryId);
+        return countryId != null ? countryId.hashCode() : 0;
     }
 }
